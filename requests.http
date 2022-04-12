@@ -1,0 +1,26 @@
+### Places Index
+GET http://localhost:3000/places.json
+
+### Places Create
+POST http://localhost:3000/places.json
+Content-Type: application/json
+
+{
+"name": "Test name",
+"address": "Test address"
+}
+
+### Place Show
+GET http://localhost:3000/places/1.json
+
+### Place Update
+PATCH http://localhost:3000/places/1.json
+Content-Type: application/json
+
+{
+"name": "New name",
+"address": "New Address"
+}
+
+### Places Destroy
+DELETE http://localhost:3000/places/1.json
