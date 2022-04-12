@@ -1,14 +1,13 @@
 class PlacesController < ApplicationController
   def index
     places = Place.all
-    render json: place.as_json
+    render json: places.as_json
   end
 
   def create
     place = Place.new(
       name: params[:name],
       address: params[:address],
-           
     )
     place.save
     render json: place.as_json
@@ -21,8 +20,8 @@ class PlacesController < ApplicationController
 
   def update
     place = Place.find_by(id: params[:id])
-    place.name = params[:name] ||place.name
-    place.width = params[:width] || place.width
+    place.name = params[:name] || place.name
+    place.address = params[:address] || place.address
     place.save
     render json: place.as_json
   end
@@ -30,7 +29,6 @@ class PlacesController < ApplicationController
   def destroy
     place = Place.find_by(id: params[:id])
     place.destroy
-    render json: {message: "Place successfully destroyed."}
+    render json: { message: "Place successfully destroyed." }
   end
-end
 end
